@@ -24,7 +24,7 @@ function getAreaOptions(tarObjIds, defaultValue, parentValue) {
 }
 
 /**
- * 版面類下拉選單
+ * 版類別下拉選單
  */
 function getTypeOptions(tarObjIds, defaultValue) {
   var url = _appContext + 'options.do?method=getTypeOptions';

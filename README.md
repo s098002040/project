@@ -2,7 +2,7 @@
 此為簡易的部落格專案
 
 ## 專案介紹
-此專案為簡易的Bloger，包含前台流程系統，基於Java、Spring4與Hibernate框架實現。
+此專案為簡易的Bloger，包含前台流程系統，基於Java、Spring框架實現。
 - 部落格系統
   - 登入
   - 註冊
@@ -18,9 +18,10 @@
 | 技術                | 說明       |
 |-------------------|----------| 
 | Java        		| Web應用開發  | 
-| Spring4        	| framwork  | 
-| Hibernate	        | ORM框架    | 
-| SQL Server		| 資料庫      | 
+| Spring        	| 框架  | 
+| Hibernate	        | 框架    | 
+| Struct1	        | 框架    | 
+| SQL Server		| 資料庫Docker      | 
 | JS、jQery			| 前端      |
 
  

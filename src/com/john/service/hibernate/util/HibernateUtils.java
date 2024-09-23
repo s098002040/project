@@ -8,9 +8,11 @@ import com.john.persistence.PersistenceService;
 public class HibernateUtils {
   
   public HibernateTemplate getHibernateTemplate() {
+    
     if(PersistenceService.getInstance() == null)
       throw new NullPointerException();
     
     return PersistenceService.getInstance().getHibernateTemplate();
+    
   }
 }

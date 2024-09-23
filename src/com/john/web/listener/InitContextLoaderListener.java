@@ -20,7 +20,8 @@ import com.john.util.jndi.em.EnumDataBase;
 import com.john.web.service.WebContextService;
 
 public class InitContextLoaderListener extends ContextLoaderListener{
-  public void contextInitialized(ServletContextEvent event) { 
+  
+  public void contextInitialized(ServletContextEvent event) {
     super.contextInitialized(event); 
     
     Connection conn = null;
@@ -33,12 +34,8 @@ public class InitContextLoaderListener extends ContextLoaderListener{
       if(conn == null)
         throw new NullPointerException();
       
-      String queryPath = 
-          event.getServletContext().getRealPath(WebContextService.WEB_INF) + File.separator + 
-          event.getServletContext().getInitParameter("initCreateQuery");
       
-      
-      insertStringQuery(conn,st , rs , queryPath);
+      insertStringQuery(conn,st , rs , queryFilePath(event));
       
     }catch (Exception e) {
       e.printStackTrace();
@@ -66,9 +63,17 @@ public class InitContextLoaderListener extends ContextLoaderListener{
     String query = "";
     while (br.ready()) {
       query = Common.get(br.readLine());
-      if (!"".equals(query)) st.execute(query);
+      if (!"".equals(query)) 
+        st.execute(query);
     }
     br.close();
     inputStream.close();
+  }
+  
+  private String queryFilePath(ServletContextEvent event) {
+    return  
+      event.getServletContext().getRealPath(WebContextService.WEB_INF) + 
+        File.separator + 
+          event.getServletContext().getInitParameter("initCreateQuery");    
   }
 }
